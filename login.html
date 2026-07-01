@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CapitalRise | Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#070707;
+overflow-x:hidden;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+body::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("assets/images/banner1.jpg") center center/cover no-repeat;
+opacity:.10;
+filter:blur(3px);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#000000cc,#050505,#000);
+z-index:-1;
+}
+
+.login-card{
+
+width:92%;
+max-width:420px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:28px;
+
+padding:35px 25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.5);
+
+animation:fadeUp .8s ease;
+
+}
+
+.logo{
+
+display:block;
+
+margin:auto;
+
+width:95px;
+
+height:95px;
+
+object-fit:contain;
+
+}
+
+.app-name{
+
+text-align:center;
+
+color:#FFD54F;
+
+font-size:32px;
+
+font-weight:700;
+
+margin-top:18px;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+color:#cccccc;
+
+font-size:14px;
+
+margin-top:8px;
+
+line-height:22px;
+
+}
+
+.form{
+
+margin-top:35px;
+
+}
+
+.label{
+
+display:block;
+
+color:#FFD54F;
+
+font-size:14px;
+
+margin-bottom:10px;
+
+font-weight:600;
+
+}
+
+.phone-box{
+
+display:flex;
+
+align-items:center;
+
+background:#121212;
+
+border:1px solid rgba(255,213,79,.30);
+
+border-radius:14px;
+
+padding:0 15px;
+
+height:60px;
+
+transition:.3s;
+
+}
+
+.phone-box:focus-within{
+
+border-color:#FFD54F;
+
+box-shadow:0 0 12px rgba(255,213,79,.35);
+
+}
+
+.country{
+
+font-size:17px;
+
+color:#ffffff;
+
+font-weight:600;
+
+margin-right:12px;
+
+}
+
+.phone-input{
+
+flex:1;
+
+height:100%;
+
+background:none;
+
+border:none;
+
+outline:none;
+
+font-size:17px;
+
+color:white;
+
+}
+
+.phone-input::placeholder{
+
+color:#8d8d8d;
+
+}
+
+.info{
+
+font-size:12px;
+
+color:#999;
+
+margin-top:12px;
+
+line-height:20px;
+
+}
+
+.recaptcha-box{
+
+margin-top:28px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+#recaptcha-container{
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.send-btn{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+outline:none;
+
+border-radius:16px;
+
+margin-top:28px;
+
+background:linear-gradient(90deg,#FFD54F,#FFC107);
+
+color:#111;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.send-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 25px rgba(255,193,7,.35);
+
+}
+
+.send-btn:active{
+
+transform:scale(.98);
+
+}
+
+.divider{
+
+display:flex;
+
+align-items:center;
+
+margin:30px 0;
+
+}
+
+.divider::before{
+
+content:"";
+
+flex:1;
+
+height:1px;
+
+background:#333;
+
+}
+
+.divider span{
+
+padding:0 15px;
+
+color:#888;
+
+font-size:13px;
+
+}
+
+.divider::after{
+
+content:"";
+
+flex:1;
+
+height:1px;
+
+background:#333;
+
+}
+
+.features{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+}
+
+.feature{
+
+background:#111;
+
+border-radius:16px;
+
+padding:18px;
+
+border:1px solid rgba(255,255,255,.05);
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+.feature:hover{
+
+transform:translateY(-5px);
+
+border-color:#FFD54F;
+
+}
+
+.feature img{
+
+width:38px;
+
+height:38px;
+
+margin-bottom:10px;
+
+}
+
+.feature h4{
+
+color:white;
+
+font-size:15px;
+
+margin-bottom:6px;
+
+}
+
+.feature p{
+
+color:#888;
+
+font-size:12px;
+
+line-height:18px;
+
+}
+
+.footer{
+
+margin-top:30px;
+
+text-align:center;
+
+font-size:12px;
+
+color:#777;
+
+line-height:20px;
+
+}
+
+.footer a{
+
+color:#FFD54F;
+
+text-decoration:none;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.login-card{
+
+padding:30px 20px;
+
+}
+
+.app-name{
+
+font-size:28px;
+
+}
+
+.send-btn{
+
+font-size:17px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+<img src="assets/logo/logo.png" class="logo">
+
+<h1 class="app-name">CapitalRise</h1>
+
+<p class="subtitle">
+Welcome Back 👋<br>
+Login securely using your mobile number.
+</p>
+
+<div class="form">
+
+<label class="label">
+Mobile Number
+</label>
+
+<div class="phone-box">
+
+<div class="country">
+🇮🇳 +91
+</div>
+
+<input
+type="tel"
+id="phone"
+class="phone-input"
+placeholder="Enter Mobile Number"
+maxlength="10">
+
+</div>
+
+<p class="info">
+OTP will be sent to your registered mobile number.
+</p>
+
+<div class="recaptcha-box">
+
+<div id="recaptcha-container"></div>
+
+</div>
+
+<button
+class="send-btn"
+id="sendOtp">
+
+Send OTP
+
+</button>
+
+<div class="divider">
+
+<span>
+Why CapitalRise?
+</span>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+
+<img src="assets/icons/task.svg">
+
+<h4>
+Daily Tasks
+</h4>
+
+<p>
+Complete tasks and earn reward coins.
+</p>
+
+</div>
+
+<div class="feature">
+
+<img src="assets/icons/wallet.svg">
+
+<h4>
+Wallet
+</h4>
+
+<p>
+Track coins and redeem rewards easily.
+</p>
+
+</div>
+
+<div class="feature">
+
+<img src="assets/icons/refer.svg">
+
+<h4>
+Refer & Earn
+</h4>
+
+<p>
+Invite friends and earn bonus rewards.
+</p>
+
+</div>
+
+<div class="feature">
+
+<img src="assets/icons/gift.svg">
+
+<h4>
+Daily Rewards
+</h4>
+
+<p>
+Collect daily bonuses and special gifts.
+</p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+By continuing you agree to our
+<a href="terms.html">Terms</a>
+&
+<a href="privacy.html">Privacy Policy</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Firebase SDK -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+<script>
+
+const auth = firebase.auth();
+
+window.onload = function(){
+
+window.recaptchaVerifier =
+new firebase.auth.RecaptchaVerifier(
+"recaptcha-container",
+{
+size:"normal",
+callback:function(response){
+
+console.log("reCAPTCHA Verified");
+
+}
+}
+);
+
+recaptchaVerifier.render();
+
+};
+
+const phoneInput =
+document.getElementById("phone");
+
+const sendBtn =
+document.getElementById("sendOtp");
+
+sendBtn.onclick = function(){
+
+let number =
+phoneInput.value.trim();
+
+if(number.length!=10){
+
+alert("Please Enter Valid Mobile Number");
+
+return;
+
+}
+
+sendBtn.disabled=true;
+
+sendBtn.innerHTML="Sending OTP...";
+
+let phone="+91"+number;
+
+auth.signInWithPhoneNumber(
+phone,
+window.recaptchaVerifier
+)
+
+.then(function(result){
+
+window.confirmationResult=result;
+
+localStorage.setItem(
+"capitalrise_phone",
+phone
+);
+
+window.location.href="otp.html";
+
+})
+
+.catch(function(error){
+
+alert(error.message);
+
+sendBtn.disabled=false;
+
+sendBtn.innerHTML="Send OTP";
+
+});
+
+};
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Enter"){
+
+sendBtn.click();
+
+}
+
+});
+
+  </script>
+
+</body>
+</html>
