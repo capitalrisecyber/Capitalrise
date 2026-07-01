@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CapitalRise | OTP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0a0a0a;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url("assets/images/banner1.jpg") center/cover no-repeat;
+opacity:0.12;
+filter:blur(4px);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#000,#111,#000);
+z-index:-1;
+}
+
+.box{
+width:92%;
+max-width:420px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border-radius:25px;
+padding:35px 25px;
+text-align:center;
+animation:fadeUp 0.6s ease;
+}
+
+.logo{
+width:90px;
+height:90px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+h1{
+color:#FFD54F;
+font-size:28px;
+margin-bottom:10px;
+}
+
+p{
+color:#ccc;
+font-size:14px;
+margin-bottom:25px;
+}
+
+.otp-inputs{
+display:flex;
+justify-content:space-between;
+gap:10px;
+}
+
+.otp-inputs input{
+width:55px;
+height:55px;
+text-align:center;
+font-size:20px;
+border-radius:12px;
+border:1px solid #333;
+background:#111;
+color:white;
+outline:none;
+}
+
+.otp-inputs input:focus{
+border-color:#FFD54F;
+box-shadow:0 0 10px rgba(255,213,79,0.4);
+}
+
+button{
+width:100%;
+margin-top:25px;
+height:55px;
+border:none;
+border-radius:15px;
+background:linear-gradient(90deg,#FFD54F,#FFC107);
+color:#111;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.resend{
+margin-top:15px;
+font-size:13px;
+color:#888;
+}
+
+.resend span{
+color:#FFD54F;
+cursor:pointer;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<img src="assets/logo/logo.png" class="logo">
+
+<h1>Verify OTP</h1>
+
+<p>We sent a 6-digit OTP to your mobile number</p>
+
+<div class="otp-inputs">
+
+<input type="text" maxlength="1">
+<input type="text" maxlength="1">
+<input type="text" maxlength="1">
+<input type="text" maxlength="1">
+<input type="text" maxlength="1">
+<input type="text" maxlength="1">
+
+</div>
+
+<button id="verifyBtn">Verify & Continue</button>
+
+<p class="resend">
+Didn't receive OTP? <span>Resend</span>
+</p>
+
+</div>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+<script>
+
+const auth = firebase.auth();
+
+// OTP inputs handle
+const inputs = document.querySelectorAll(".otp-inputs input");
+
+inputs.forEach((input, index) => {
+  input.addEventListener("input", () => {
+    if (input.value.length === 1 && index < inputs.length - 1) {
+      inputs[index + 1].focus();
+    }
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace" && input.value === "" && index > 0) {
+      inputs[index - 1].focus();
+    }
+  });
+});
+
+// Verify OTP
+document.getElementById("verifyBtn").onclick = function () {
+
+  let otp = "";
+
+  inputs.forEach(i => {
+    otp += i.value;
+  });
+
+  if (otp.length !== 6) {
+    alert("Enter valid 6-digit OTP");
+    return;
+  }
+
+  this.innerText = "Verifying...";
+  this.disabled = true;
+
+  let confirmationResult = window.confirmationResult;
+
+  if (!confirmationResult) {
+    alert("Session expired. Please login again.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  confirmationResult.confirm(otp)
+    .then((result) => {
+
+      let user = result.user;
+
+      // save user session
+      localStorage.setItem("capitalrise_user", JSON.stringify({
+        phone: user.phoneNumber,
+        uid: user.uid
+      }));
+
+      window.location.href = "dashboard.html";
+
+    })
+    .catch((error) => {
+
+      alert("Invalid OTP");
+
+      document.getElementById("verifyBtn").innerText = "Verify & Continue";
+      document.getElementById("verifyBtn").disabled = false;
+
+    });
+
+};
+
+// Auto read OTP (paste support)
+document.addEventListener("paste", (e) => {
+
+  let paste = (e.clipboardData || window.clipboardData).getData("text");
+
+  if (paste.length === 6) {
+
+    inputs.forEach((input, i) => {
+      input.value = paste[i];
+    });
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
