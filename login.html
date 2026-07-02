@@ -595,18 +595,14 @@ By continuing you agree to our
 
 const auth = firebase.auth();
 
+let confirmationResult = null;
+
 window.onload = function(){
 
-window.recaptchaVerifier =
-new firebase.auth.RecaptchaVerifier(
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
 "recaptcha-container",
 {
-size:"normal",
-callback:function(response){
-
-console.log("reCAPTCHA Verified");
-
-}
+size:"normal"
 }
 );
 
@@ -614,30 +610,24 @@ recaptchaVerifier.render();
 
 };
 
-const phoneInput =
-document.getElementById("phone");
+const phoneInput = document.getElementById("phone");
+const sendBtn = document.getElementById("sendOtp");
 
-const sendBtn =
-document.getElementById("sendOtp");
+sendBtn.addEventListener("click",function(){
 
-sendBtn.onclick = function(){
+let number = phoneInput.value.trim();
 
-let number =
-phoneInput.value.trim();
-
-if(number.length!=10){
+if(number.length !== 10){
 
 alert("Please Enter Valid Mobile Number");
-
 return;
 
 }
 
-sendBtn.disabled=true;
+sendBtn.disabled = true;
+sendBtn.innerHTML = "Sending OTP...";
 
-sendBtn.innerHTML="Sending OTP...";
-
-let phone="+91"+number;
+let phone = "+91" + number;
 
 auth.signInWithPhoneNumber(
 phone,
@@ -646,14 +636,18 @@ window.recaptchaVerifier
 
 .then(function(result){
 
-window.confirmationResult=result;
+confirmationResult = result;
 
-localStorage.setItem(
+window.opener = null;
+
+sessionStorage.setItem(
 "capitalrise_phone",
 phone
 );
 
-window.location.href="otp.html";
+window.confirmationResult = result;
+
+window.location.href = "otp.html";
 
 })
 
@@ -661,17 +655,17 @@ window.location.href="otp.html";
 
 alert(error.message);
 
-sendBtn.disabled=false;
+sendBtn.disabled = false;
 
-sendBtn.innerHTML="Send OTP";
+sendBtn.innerHTML = "Send OTP";
+
+grecaptcha.reset(window.recaptchaVerifier.widgetId);
 
 });
 
-};
+});
 
-document.addEventListener(
-"keydown",
-function(e){
+document.addEventListener("keydown",function(e){
 
 if(e.key==="Enter"){
 
@@ -681,7 +675,7 @@ sendBtn.click();
 
 });
 
-  </script>
+   </script>
 
 </body>
 </html>
