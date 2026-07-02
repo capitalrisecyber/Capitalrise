@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CapitalRise | Reward History</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+background:#070707;
+
+color:#fff;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+position:relative;
+
+padding-bottom:100px;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:url("assets/images/banner1.jpg") center center/cover no-repeat;
+
+opacity:.08;
+
+filter:blur(5px);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(to bottom,#000000dd,#0b0b0b,#000);
+
+z-index:-1;
+
+}
+
+.header{
+
+padding:22px 18px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.back{
+
+width:45px;
+
+height:45px;
+
+border-radius:12px;
+
+background:#151515;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.title-box h1{
+
+font-size:26px;
+
+font-weight:700;
+
+color:#FFD54F;
+
+}
+
+.title-box p{
+
+margin-top:4px;
+
+font-size:13px;
+
+color:#999;
+
+}
+
+.summary-card{
+
+width:92%;
+
+margin:auto;
+
+background:linear-gradient(135deg,#FFD54F,#FFC107);
+
+border-radius:22px;
+
+padding:25px;
+
+color:#111;
+
+box-shadow:0 12px 30px rgba(255,193,7,.25);
+
+}
+
+.summary-card h2{
+
+font-size:18px;
+
+font-weight:700;
+
+}
+
+.summary-card h3{
+
+margin-top:10px;
+
+font-size:36px;
+
+font-weight:800;
+
+}
+
+.summary-card p{
+
+margin-top:8px;
+
+font-size:13px;
+
+opacity:.85;
+
+}
+
+.history-list{
+
+width:92%;
+
+margin:25px auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+  .history-card{
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+padding:18px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+transition:.3s;
+
+}
+
+.history-card:hover{
+
+border-color:#FFD54F;
+
+transform:translateY(-3px);
+
+}
+
+.history-left{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.history-icon{
+
+width:55px;
+
+height:55px;
+
+border-radius:16px;
+
+background:#1b1b1b;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.history-icon img{
+
+width:30px;
+
+height:30px;
+
+object-fit:contain;
+
+}
+
+.history-info h3{
+
+font-size:16px;
+
+font-weight:700;
+
+margin-bottom:5px;
+
+}
+
+.history-info p{
+
+font-size:12px;
+
+color:#999;
+
+line-height:18px;
+
+}
+
+.history-amount{
+
+text-align:right;
+
+}
+
+.history-amount h3{
+
+font-size:18px;
+
+font-weight:700;
+
+color:#00E676;
+
+}
+
+.history-amount p{
+
+font-size:12px;
+
+color:#888;
+
+margin-top:4px;
+
+}
+
+.credit{
+
+color:#00E676 !important;
+
+}
+
+.debit{
+
+color:#FF5252 !important;
+
+}
+
+.empty{
+
+width:92%;
+
+margin:30px auto;
+
+text-align:center;
+
+display:none;
+
+}
+
+.empty img{
+
+width:150px;
+
+margin-bottom:15px;
+
+}
+
+.empty h3{
+
+font-size:20px;
+
+margin-bottom:8px;
+
+}
+
+.empty p{
+
+font-size:13px;
+
+color:#999;
+
+line-height:22px;
+
+}
+
+.bottom-space{
+
+height:30px;
+
+}
+  @keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.header{
+
+padding:18px 15px;
+
+}
+
+.summary-card{
+
+padding:20px;
+
+}
+
+.summary-card h3{
+
+font-size:30px;
+
+}
+
+.history-card{
+
+padding:15px;
+
+}
+
+.history-icon{
+
+width:48px;
+
+height:48px;
+
+}
+
+.history-icon img{
+
+width:26px;
+
+height:26px;
+
+}
+
+.history-info h3{
+
+font-size:15px;
+
+}
+
+.history-info p{
+
+font-size:11px;
+
+}
+
+.history-amount h3{
+
+font-size:16px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div
+
+class="back"
+
+onclick="history.back()">
+
+←
+
+</div>
+
+<div class="title-box">
+
+<h1>
+
+Reward History
+
+</h1>
+
+<p>
+
+Track all your earnings
+
+</p>
+
+</div>
+
+</div>
+
+<div class="summary-card">
+
+<h2>
+
+Total Rewards Earned
+
+</h2>
+
+<h3 id="totalReward">
+
+0 Coins
+
+</h3>
+
+<p>
+
+All your reward transactions are listed below.
+
+</p>
+
+</div>
+
+<div
+
+class="history-list"
+
+id="historyList">
+
+</div>
+
+<div
+
+class="empty"
+
+id="emptyBox">
+
+<img src="assets/images/empty.png">
+
+<h3>
+
+No History Found
+
+</h3>
+
+<p>
+
+Complete tasks and redeem rewards to see your transaction history.
+
+</p>
+
+</div>
+
+<div class="bottom-space"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+<script src="js/history.js"></script>
+
+</body>
+
+</html>
