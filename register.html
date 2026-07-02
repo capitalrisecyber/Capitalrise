@@ -31,12 +31,6 @@ font-family:'Poppins',sans-serif;
 
 }
 
-html{
-
-scroll-behavior:smooth;
-
-}
-
 body{
 
 background:#070707;
@@ -49,11 +43,11 @@ justify-content:center;
 
 align-items:center;
 
+padding:30px 15px;
+
 overflow-x:hidden;
 
 position:relative;
-
-padding:30px 15px;
 
 }
 
@@ -72,8 +66,6 @@ width:100%;
 height:100%;
 
 background:url("assets/images/banner2.jpg") center center/cover no-repeat;
-
-background-size:cover;
 
 opacity:.08;
 
@@ -111,9 +103,9 @@ max-width:430px;
 
 background:rgba(255,255,255,.05);
 
-border:1px solid rgba(255,255,255,.08);
-
 backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
 
 border-radius:28px;
 
@@ -127,11 +119,11 @@ animation:fadeUp .8s ease;
 
 .logo{
 
-display:block;
-
 width:95px;
 
 height:95px;
+
+display:block;
 
 margin:auto;
 
@@ -143,13 +135,13 @@ object-fit:contain;
 
 margin-top:18px;
 
+text-align:center;
+
 font-size:32px;
 
 font-weight:700;
 
 color:#FFD54F;
-
-text-align:center;
 
 }
 
@@ -157,19 +149,85 @@ text-align:center;
 
 margin-top:10px;
 
-font-size:14px;
-
-line-height:23px;
-
 text-align:center;
 
-color:#d2d2d2;
+font-size:14px;
+
+line-height:22px;
+
+color:#cfcfcf;
+
+}
+
+.avatar{
+
+margin:28px auto;
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+overflow:hidden;
+
+border:3px solid #FFD54F;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#111;
+
+box-shadow:0 0 18px rgba(255,213,79,.25);
+
+}
+
+.avatar img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+#photo{
+
+display:none;
+
+}
+
+.upload-btn{
+
+width:100%;
+
+height:50px;
+
+border:none;
+
+border-radius:14px;
+
+margin-top:15px;
+
+background:#FFD54F;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:#111;
 
 }
 
 .form{
 
-margin-top:35px;
+margin-top:28px;
 
 }
 
@@ -177,7 +235,7 @@ margin-top:35px;
 
 display:block;
 
-margin-bottom:10px;
+margin-bottom:8px;
 
 font-size:14px;
 
@@ -202,16 +260,6 @@ border-radius:15px;
 padding:0 18px;
 
 margin-bottom:18px;
-
-transition:.3s;
-
-}
-
-.input-box:focus-within{
-
-border-color:#FFD54F;
-
-box-shadow:0 0 15px rgba(255,213,79,.25);
 
 }
 
@@ -238,89 +286,7 @@ color:#fff;
 color:#888;
 
 }
-  .avatar-section{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-margin-bottom:25px;
-
-}
-
-.avatar-box{
-
-width:110px;
-
-height:110px;
-
-border-radius:50%;
-
-overflow:hidden;
-
-border:3px solid #FFD54F;
-
-background:#161616;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-box-shadow:0 0 20px rgba(255,213,79,.18);
-
-}
-
-.avatar-box img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-}
-
-.upload-btn{
-
-margin-top:15px;
-
-padding:10px 18px;
-
-border:none;
-
-border-radius:12px;
-
-background:#FFD54F;
-
-color:#111;
-
-font-size:14px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.upload-btn:hover{
-
-transform:translateY(-2px);
-
-}
-
-.file-input{
-
-display:none;
-
-}
-
-.info{
+  .referral-note{
 
 font-size:12px;
 
@@ -328,13 +294,11 @@ color:#999;
 
 line-height:20px;
 
-margin-top:5px;
-
 margin-bottom:20px;
 
 }
 
-.submit-btn{
+.send-btn{
 
 width:100%;
 
@@ -356,11 +320,11 @@ cursor:pointer;
 
 transition:.3s;
 
-margin-top:10px;
+margin-top:5px;
 
 }
 
-.submit-btn:hover{
+.send-btn:hover{
 
 transform:translateY(-2px);
 
@@ -368,37 +332,133 @@ box-shadow:0 10px 25px rgba(255,193,7,.30);
 
 }
 
-.submit-btn:active{
+.otp-section{
 
-transform:scale(.98);
+display:none;
+
+margin-top:25px;
+
+animation:fadeUp .5s ease;
 
 }
 
-.skip{
+.otp-title{
 
-margin-top:18px;
+color:#FFD54F;
+
+font-size:15px;
+
+font-weight:600;
+
+margin-bottom:12px;
+
+}
+
+.otp-box{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:10px;
+
+}
+
+.otp-input{
+
+width:50px;
+
+height:55px;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:12px;
 
 text-align:center;
 
-font-size:13px;
+font-size:22px;
 
-color:#888;
+font-weight:700;
+
+color:#fff;
+
+outline:none;
+
+transition:.3s;
 
 }
 
-.skip a{
+.otp-input:focus{
+
+border-color:#FFD54F;
+
+box-shadow:0 0 12px rgba(255,213,79,.30);
+
+}
+
+.register-btn{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:16px;
+
+margin-top:22px;
+
+background:linear-gradient(90deg,#00E676,#00C853);
+
+color:#111;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+display:none;
+
+}
+
+.register-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.info{
+
+margin-top:18px;
+
+font-size:12px;
+
+line-height:20px;
+
+color:#999;
+
+}
+
+.footer{
+
+margin-top:28px;
+
+text-align:center;
+
+font-size:12px;
+
+color:#777;
+
+}
+
+.footer a{
 
 color:#FFD54F;
 
 text-decoration:none;
-
-font-weight:600;
-
-}
-
-.skip a:hover{
-
-text-decoration:underline;
 
 }
 
@@ -420,8 +480,9 @@ transform:translateY(0);
 
 }
 
-  }
-  @media(max-width:480px){
+}
+
+@media(max-width:480px){
 
 .register-card{
 
@@ -435,17 +496,21 @@ font-size:28px;
 
 }
 
-.submit-btn{
-
-font-size:17px;
-
-}
-
-.avatar-box{
+.avatar{
 
 width:95px;
 
 height:95px;
+
+}
+
+.otp-input{
+
+width:45px;
+
+height:50px;
+
+font-size:20px;
 
 }
 
@@ -465,44 +530,45 @@ class="logo">
 
 <h1 class="title">
 
-Complete Profile
+Create Account
 
 </h1>
 
 <p class="subtitle">
 
-Complete your CapitalRise profile to continue.
+Join CapitalRise and start earning today.
 
 </p>
 
-<div class="form">
-
-<div class="avatar-section">
-
-<div class="avatar-box">
+<div class="avatar">
 
 <img
+
 id="avatarPreview"
+
 src="assets/images/avatar.png">
 
 </div>
 
 <input
+
 type="file"
-id="avatar"
-class="file-input"
+
+id="photo"
+
 accept="image/*">
 
 <button
-type="button"
+
 class="upload-btn"
-id="uploadBtn">
+
+id="choosePhoto">
 
 Choose Photo
 
 </button>
 
-</div>
+<div class="form">
 
 <label class="label">
 
@@ -526,7 +592,7 @@ placeholder="Enter Full Name">
 
 <label class="label">
 
-Email (Optional)
+Gmail
 
 </label>
 
@@ -540,7 +606,28 @@ id="email"
 
 class="input"
 
-placeholder="Enter Email Address">
+placeholder="Enter Gmail Address">
+
+</div>
+<label class="label">
+
+Mobile Number
+
+</label>
+
+<div class="input-box">
+
+<input
+
+type="tel"
+
+id="phone"
+
+class="input"
+
+placeholder="Enter Mobile Number"
+
+maxlength="10">
 
 </div>
 
@@ -564,27 +651,77 @@ placeholder="Enter Referral Code">
 
 </div>
 
-<p class="info">
+<p class="referral-note">
 
-Profile details can be updated later from the Profile section.
+Referral code is optional. If you have one, enter it to receive bonus rewards.
 
 </p>
 
+<div id="recaptcha-container"></div>
+
 <button
 
-class="submit-btn"
+class="send-btn"
 
-id="continueBtn">
+id="sendOtp">
 
-Continue
+Send OTP
 
 </button>
 
-<div class="skip">
+<div
 
-<a href="dashboard.html">
+class="otp-section"
 
-Skip For Now
+id="otpSection">
+
+<div class="otp-title">
+
+Enter 6 Digit OTP
+
+</div>
+
+<div class="otp-box">
+
+<input class="otp-input" maxlength="1">
+
+<input class="otp-input" maxlength="1">
+
+<input class="otp-input" maxlength="1">
+
+<input class="otp-input" maxlength="1">
+
+<input class="otp-input" maxlength="1">
+
+<input class="otp-input" maxlength="1">
+
+</div>
+
+<button
+
+class="register-btn"
+
+id="registerBtn">
+
+Verify OTP & Register
+
+</button>
+
+<p class="info">
+
+After successful verification your CapitalRise account will be created automatically.
+
+</p>
+
+</div>
+
+<div class="footer">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
 
 </a>
 
@@ -596,32 +733,40 @@ Skip For Now
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script src="js/firebase.js"></script>
 
 <script>
-  const db = firebase.firestore();
+  const auth = firebase.auth();
 
-const auth = firebase.auth();
+const db = firebase.firestore();
 
-const uploadBtn = document.getElementById("uploadBtn");
+let confirmationResult = null;
 
-const avatarInput = document.getElementById("avatar");
+const choosePhoto = document.getElementById("choosePhoto");
+
+const photo = document.getElementById("photo");
 
 const avatarPreview = document.getElementById("avatarPreview");
 
-const continueBtn = document.getElementById("continueBtn");
+const sendOtp = document.getElementById("sendOtp");
 
-uploadBtn.addEventListener("click",function(){
+const registerBtn = document.getElementById("registerBtn");
 
-avatarInput.click();
+const otpSection = document.getElementById("otpSection");
+
+const otpInputs = document.querySelectorAll(".otp-input");
+
+choosePhoto.addEventListener("click",function(){
+
+photo.click();
 
 });
 
-avatarInput.addEventListener("change",function(){
+photo.addEventListener("change",function(){
 
 const file=this.files[0];
 
@@ -651,37 +796,122 @@ reader.readAsDataURL(file);
 
 });
 
-continueBtn.addEventListener("click",async function(){
+window.onload=function(){
+
+window.recaptchaVerifier=
+
+new firebase.auth.RecaptchaVerifier(
+
+"recaptcha-container",
+
+{
+
+size:"normal"
+
+}
+
+);
+
+recaptchaVerifier.render();
+
+};
+
+sendOtp.addEventListener("click",function(){
+
+const phone=document.getElementById("phone").value.trim();
+
+if(phone.length!==10){
+
+alert("Please Enter Valid Mobile Number");
+
+return;
+
+}
+
+sendOtp.disabled=true;
+
+sendOtp.innerHTML="Sending OTP...";
+
+auth.signInWithPhoneNumber(
+
+"+91"+phone,
+
+window.recaptchaVerifier
+
+)
+
+.then(function(result){
+
+confirmationResult=result;
+
+otpSection.style.display="block";
+
+registerBtn.style.display="block";
+
+sendOtp.style.display="none";
+
+})
+
+.catch(function(error){
+
+alert(error.message);
+
+sendOtp.disabled=false;
+
+sendOtp.innerHTML="Send OTP";
+
+});
+
+});
+
+otpInputs.forEach((input,index)=>{
+
+input.addEventListener("input",function(){
+
+if(this.value.length===1 && index<otpInputs.length-1){
+
+otpInputs[index+1].focus();
+
+}
+
+});
+
+});
+  registerBtn.addEventListener("click",async function(){
+
+let otp="";
+
+otpInputs.forEach(function(input){
+
+otp+=input.value;
+
+});
+
+if(otp.length!==6){
+
+alert("Please Enter Valid OTP");
+
+return;
+
+}
+
+registerBtn.disabled=true;
+
+registerBtn.innerHTML="Creating Account...";
+
+try{
+
+const result=await confirmationResult.confirm(otp);
+
+const user=result.user;
 
 const name=document.getElementById("name").value.trim();
 
 const email=document.getElementById("email").value.trim();
 
+const phone=document.getElementById("phone").value.trim();
+
 const referral=document.getElementById("referral").value.trim();
-
-if(name===""){
-
-alert("Please Enter Your Name");
-
-return;
-
-}
-
-const user=auth.currentUser;
-
-if(!user){
-
-alert("Please Login Again");
-
-window.location.href="login.html";
-
-return;
-
-}
-
-continueBtn.disabled=true;
-
-continueBtn.innerHTML="Saving Profile...";
 
 const avatar=
 
@@ -691,8 +921,6 @@ localStorage.getItem("capitalrise_avatar")
 
 "assets/images/avatar.png";
 
-try{
-
 await db.collection("users")
 
 .doc(user.uid)
@@ -701,16 +929,19 @@ await db.collection("users")
 
 uid:user.uid,
 
-phone:user.phoneNumber,
-
 name:name,
 
 email:email,
 
+phone:"+91"+phone,
+
 referralCode:referral,
 
-avatar:avatar,
-  coins:0,
+profileImage:avatar,
+
+wallet:0,
+
+coins:0,
 
 todayCoins:0,
 
@@ -718,19 +949,19 @@ completedTasks:0,
 
 totalTasks:0,
 
-wallet:0,
-
 referrals:0,
 
 level:"Beginner",
 
-profileImage:avatar,
-
 joined:firebase.firestore.FieldValue.serverTimestamp()
 
-},
+});
 
-{merge:true}
+localStorage.setItem(
+
+"capitalrise_uid",
+
+user.uid
 
 );
 
@@ -744,17 +975,17 @@ name
 
 localStorage.setItem(
 
-"capitalrise_email",
+"capitalrise_phone",
 
-email
+"+91"+phone
 
 );
 
 localStorage.setItem(
 
-"capitalrise_referral",
+"capitalrise_email",
 
-referral
+email
 
 );
 
@@ -766,9 +997,9 @@ catch(error){
 
 alert(error.message);
 
-continueBtn.disabled=false;
+registerBtn.disabled=false;
 
-continueBtn.innerHTML="Continue";
+registerBtn.innerHTML="Verify OTP & Register";
 
 }
 
@@ -778,7 +1009,15 @@ document.addEventListener("keydown",function(e){
 
 if(e.key==="Enter"){
 
-continueBtn.click();
+if(otpSection.style.display==="none"){
+
+sendOtp.click();
+
+}else{
+
+registerBtn.click();
+
+}
 
 }
 
@@ -789,4 +1028,3 @@ continueBtn.click();
 </body>
 
 </html>
-  
