@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CapitalRise | Register</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:#070707;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow-x:hidden;
+
+position:relative;
+
+padding:30px 15px;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:url("assets/images/banner2.jpg") center center/cover no-repeat;
+
+background-size:cover;
+
+opacity:.08;
+
+filter:blur(5px);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(to bottom,#000000dd,#0b0b0b,#000);
+
+z-index:-1;
+
+}
+
+.register-card{
+
+width:100%;
+
+max-width:430px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border-radius:28px;
+
+padding:35px 25px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.55);
+
+animation:fadeUp .8s ease;
+
+}
+
+.logo{
+
+display:block;
+
+width:95px;
+
+height:95px;
+
+margin:auto;
+
+object-fit:contain;
+
+}
+
+.title{
+
+margin-top:18px;
+
+font-size:32px;
+
+font-weight:700;
+
+color:#FFD54F;
+
+text-align:center;
+
+}
+
+.subtitle{
+
+margin-top:10px;
+
+font-size:14px;
+
+line-height:23px;
+
+text-align:center;
+
+color:#d2d2d2;
+
+}
+
+.form{
+
+margin-top:35px;
+
+}
+
+.label{
+
+display:block;
+
+margin-bottom:10px;
+
+font-size:14px;
+
+font-weight:600;
+
+color:#FFD54F;
+
+}
+
+.input-box{
+
+width:100%;
+
+height:58px;
+
+background:#121212;
+
+border:1px solid rgba(255,213,79,.25);
+
+border-radius:15px;
+
+padding:0 18px;
+
+margin-bottom:18px;
+
+transition:.3s;
+
+}
+
+.input-box:focus-within{
+
+border-color:#FFD54F;
+
+box-shadow:0 0 15px rgba(255,213,79,.25);
+
+}
+
+.input{
+
+width:100%;
+
+height:100%;
+
+background:none;
+
+border:none;
+
+outline:none;
+
+font-size:16px;
+
+color:#fff;
+
+}
+
+.input::placeholder{
+
+color:#888;
+
+}
+  .avatar-section{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.avatar-box{
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+overflow:hidden;
+
+border:3px solid #FFD54F;
+
+background:#161616;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:0 0 20px rgba(255,213,79,.18);
+
+}
+
+.avatar-box img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+.upload-btn{
+
+margin-top:15px;
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:12px;
+
+background:#FFD54F;
+
+color:#111;
+
+font-size:14px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.upload-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.file-input{
+
+display:none;
+
+}
+
+.info{
+
+font-size:12px;
+
+color:#999;
+
+line-height:20px;
+
+margin-top:5px;
+
+margin-bottom:20px;
+
+}
+
+.submit-btn{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:16px;
+
+background:linear-gradient(90deg,#FFD54F,#FFC107);
+
+color:#111;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+margin-top:10px;
+
+}
+
+.submit-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 25px rgba(255,193,7,.30);
+
+}
+
+.submit-btn:active{
+
+transform:scale(.98);
+
+}
+
+.skip{
+
+margin-top:18px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#888;
+
+}
+
+.skip a{
+
+color:#FFD54F;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.skip a:hover{
+
+text-decoration:underline;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+  }
+  @media(max-width:480px){
+
+.register-card{
+
+padding:30px 20px;
+
+}
+
+.title{
+
+font-size:28px;
+
+}
+
+.submit-btn{
+
+font-size:17px;
+
+}
+
+.avatar-box{
+
+width:95px;
+
+height:95px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="register-card">
+
+<img
+src="assets/logo/logo.png"
+class="logo">
+
+<h1 class="title">
+
+Complete Profile
+
+</h1>
+
+<p class="subtitle">
+
+Complete your CapitalRise profile to continue.
+
+</p>
+
+<div class="form">
+
+<div class="avatar-section">
+
+<div class="avatar-box">
+
+<img
+id="avatarPreview"
+src="assets/images/avatar.png">
+
+</div>
+
+<input
+type="file"
+id="avatar"
+class="file-input"
+accept="image/*">
+
+<button
+type="button"
+class="upload-btn"
+id="uploadBtn">
+
+Choose Photo
+
+</button>
+
+</div>
+
+<label class="label">
+
+Full Name
+
+</label>
+
+<div class="input-box">
+
+<input
+
+type="text"
+
+id="name"
+
+class="input"
+
+placeholder="Enter Full Name">
+
+</div>
+
+<label class="label">
+
+Email (Optional)
+
+</label>
+
+<div class="input-box">
+
+<input
+
+type="email"
+
+id="email"
+
+class="input"
+
+placeholder="Enter Email Address">
+
+</div>
+
+<label class="label">
+
+Referral Code (Optional)
+
+</label>
+
+<div class="input-box">
+
+<input
+
+type="text"
+
+id="referral"
+
+class="input"
+
+placeholder="Enter Referral Code">
+
+</div>
+
+<p class="info">
+
+Profile details can be updated later from the Profile section.
+
+</p>
+
+<button
+
+class="submit-btn"
+
+id="continueBtn">
+
+Continue
+
+</button>
+
+<div class="skip">
+
+<a href="dashboard.html">
+
+Skip For Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+<script>
+  const db = firebase.firestore();
+
+const auth = firebase.auth();
+
+const uploadBtn = document.getElementById("uploadBtn");
+
+const avatarInput = document.getElementById("avatar");
+
+const avatarPreview = document.getElementById("avatarPreview");
+
+const continueBtn = document.getElementById("continueBtn");
+
+uploadBtn.addEventListener("click",function(){
+
+avatarInput.click();
+
+});
+
+avatarInput.addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(!file){
+
+return;
+
+}
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+avatarPreview.src=e.target.result;
+
+localStorage.setItem(
+
+"capitalrise_avatar",
+
+e.target.result
+
+);
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+continueBtn.addEventListener("click",async function(){
+
+const name=document.getElementById("name").value.trim();
+
+const email=document.getElementById("email").value.trim();
+
+const referral=document.getElementById("referral").value.trim();
+
+if(name===""){
+
+alert("Please Enter Your Name");
+
+return;
+
+}
+
+const user=auth.currentUser;
+
+if(!user){
+
+alert("Please Login Again");
+
+window.location.href="login.html";
+
+return;
+
+}
+
+continueBtn.disabled=true;
+
+continueBtn.innerHTML="Saving Profile...";
+
+const avatar=
+
+localStorage.getItem("capitalrise_avatar")
+
+||
+
+"assets/images/avatar.png";
+
+try{
+
+await db.collection("users")
+
+.doc(user.uid)
+
+.set({
+
+uid:user.uid,
+
+phone:user.phoneNumber,
+
+name:name,
+
+email:email,
+
+referralCode:referral,
+
+avatar:avatar,
+  coins:0,
+
+todayCoins:0,
+
+completedTasks:0,
+
+totalTasks:0,
+
+wallet:0,
+
+referrals:0,
+
+level:"Beginner",
+
+profileImage:avatar,
+
+joined:firebase.firestore.FieldValue.serverTimestamp()
+
+},
+
+{merge:true}
+
+);
+
+localStorage.setItem(
+
+"capitalrise_name",
+
+name
+
+);
+
+localStorage.setItem(
+
+"capitalrise_email",
+
+email
+
+);
+
+localStorage.setItem(
+
+"capitalrise_referral",
+
+referral
+
+);
+
+window.location.href="dashboard.html";
+
+}
+
+catch(error){
+
+alert(error.message);
+
+continueBtn.disabled=false;
+
+continueBtn.innerHTML="Continue";
+
+}
+
+});
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Enter"){
+
+continueBtn.click();
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
+  
