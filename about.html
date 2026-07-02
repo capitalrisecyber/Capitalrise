@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CapitalRise | About</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+background:#070707;
+
+color:#fff;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+position:relative;
+
+padding-bottom:100px;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:url("assets/images/banner2.jpg") center center/cover no-repeat;
+
+opacity:.08;
+
+filter:blur(5px);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(to bottom,#000000dd,#0b0b0b,#000);
+
+z-index:-1;
+
+}
+
+.header{
+
+padding:22px 18px;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.back{
+
+width:45px;
+
+height:45px;
+
+border-radius:12px;
+
+background:#151515;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.title-box h1{
+
+font-size:26px;
+
+font-weight:700;
+
+color:#FFD54F;
+
+}
+
+.title-box p{
+
+margin-top:4px;
+
+font-size:13px;
+
+color:#999;
+
+}
+
+.about-card{
+
+width:92%;
+
+margin:20px auto;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+padding:25px;
+
+animation:fadeUp .7s ease;
+
+}
+
+.logo{
+
+width:100px;
+
+height:100px;
+
+display:block;
+
+margin:auto;
+
+object-fit:contain;
+
+}
+
+.app-name{
+
+text-align:center;
+
+font-size:30px;
+
+font-weight:700;
+
+color:#FFD54F;
+
+margin-top:15px;
+
+}
+
+.version{
+
+text-align:center;
+
+font-size:14px;
+
+color:#999;
+
+margin-top:6px;
+
+}
+
+.about-text{
+
+margin-top:25px;
+
+font-size:14px;
+
+line-height:28px;
+
+color:#ddd;
+
+text-align:justify;
+
+}
+  .feature-list{
+
+margin-top:25px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.feature-item{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:16px;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+transition:.3s;
+
+}
+
+.feature-item:hover{
+
+border-color:#FFD54F;
+
+transform:translateY(-3px);
+
+}
+
+.feature-icon{
+
+width:52px;
+
+height:52px;
+
+border-radius:15px;
+
+background:#1b1b1b;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.feature-icon img{
+
+width:28px;
+
+height:28px;
+
+object-fit:contain;
+
+}
+
+.feature-info h3{
+
+font-size:16px;
+
+font-weight:700;
+
+margin-bottom:5px;
+
+}
+
+.feature-info p{
+
+font-size:13px;
+
+color:#999;
+
+line-height:20px;
+
+}
+
+.developer-card{
+
+width:92%;
+
+margin:25px auto;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+.developer-card h3{
+
+font-size:20px;
+
+color:#FFD54F;
+
+margin-bottom:10px;
+
+}
+
+.developer-card p{
+
+font-size:14px;
+
+color:#aaa;
+
+line-height:24px;
+
+}
+
+.website{
+
+margin-top:15px;
+
+font-size:14px;
+
+color:#FFD54F;
+
+font-weight:600;
+
+word-break:break-all;
+
+}
+  .bottom-space{
+
+height:30px;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.header{
+
+padding:18px 15px;
+
+}
+
+.about-card{
+
+padding:20px;
+
+}
+
+.logo{
+
+width:85px;
+
+height:85px;
+
+}
+
+.app-name{
+
+font-size:26px;
+
+}
+
+.feature-item{
+
+padding:15px;
+
+}
+
+.feature-icon{
+
+width:46px;
+
+height:46px;
+
+}
+
+.feature-icon img{
+
+width:24px;
+
+height:24px;
+
+}
+
+.feature-info h3{
+
+font-size:15px;
+
+}
+
+.feature-info p{
+
+font-size:12px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div
+
+class="back"
+
+onclick="history.back()">
+
+←
+
+</div>
+
+<div class="title-box">
+
+<h1>
+
+About
+
+</h1>
+
+<p>
+
+Know more about CapitalRise
+
+</p>
+
+</div>
+
+</div>
+
+<div class="about-card">
+
+<img
+
+src="assets/logo/logo.png"
+
+class="logo">
+
+<h2 class="app-name">
+
+CapitalRise
+
+</h2>
+
+<p class="version">
+
+Version 1.0.0
+
+</p>
+
+<p class="about-text">
+
+CapitalRise is a modern rewards platform where users can complete daily tasks, invite friends, earn reward coins, and redeem exciting rewards. Our goal is to provide a simple, secure, and engaging experience with a clean interface and fast performance.
+
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+
+<div class="feature-icon">
+
+<img src="assets/icons/tasks.svg">
+
+</div>
+
+<div class="feature-info">
+
+<h3>Daily Tasks</h3>
+
+<p>Complete simple tasks every day and earn reward coins.</p>
+
+</div>
+
+</div>
+
+<div class="feature-item">
+
+<div class="feature-icon">
+
+<img src="assets/icons/wallet.svg">
+
+</div>
+
+<div class="feature-info">
+
+<h3>Secure Wallet</h3>
+
+<p>Manage your rewards and redeem them safely anytime.</p>
+
+</div>
+
+</div>
+
+<div class="feature-item">
+
+<div class="feature-icon">
+
+<img src="assets/icons/refer.svg">
+
+</div>
+
+<div class="feature-info">
+
+<h3>Refer & Earn</h3>
+
+<p>Invite your friends and receive referral bonus rewards.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="developer-card">
+
+<h3>
+
+CapitalRise Team
+
+</h3>
+
+<p>
+
+Thank you for using CapitalRise. We are continuously improving the app to provide a better experience for every user.
+
+</p>
+
+<div class="website">
+
+www.capitalrise.app
+
+</div>
+
+</div>
+
+<div class="bottom-space"></div>
+
+</body>
+
+</html>
